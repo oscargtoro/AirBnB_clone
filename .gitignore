@@ -1,0 +1,7 @@
+*
+!*/
+!*.py
+!README.md
+!.gitignore
+!/models/**
+!/tests/**
