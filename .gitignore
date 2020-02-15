@@ -1,7 +1,8 @@
 *
 !*/
 !*.py
+*test*
 !README.md
 !.gitignore
-!/models/**
+/models/*cache*
 !/tests/**
