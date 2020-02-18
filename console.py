@@ -53,6 +53,7 @@ class HBNBCommand(cmd.Cmd):
         largs = len(args)
         if largs < 1:
             print("** class name missing **")
+            return
         if largs == 1:
             if args[0] not in self.__class_list:
                 print("** class doesn't exist **")
@@ -63,10 +64,10 @@ class HBNBCommand(cmd.Cmd):
         elif largs == 2:
             models = storage.all()
             bm_key = "{}.{}".format(args[0], args[1])
-        try:
-            print(models[bm_key])
-        except:
-            print("** no instance found **")
+            try:
+                print(models[bm_key])
+            except:
+                print("** no instance found **")
 
     def do_all(self, line):
         """Prints all string representation of all instances
