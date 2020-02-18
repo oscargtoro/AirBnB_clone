@@ -3,6 +3,12 @@
 import cmd
 import shlex
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -10,9 +16,10 @@ class HBNBCommand(cmd.Cmd):
     """HBNBCommand class"""
 
     prompt = "(hbnb) "
-    __class_list = ["BaseModel"]
+    __class_list = ["BaseModel", "User", "State", "City", "Amenity\
+", "Place", "Review"]
 
-    def do_quit(self):
+    def do_quit(self, line):
         """Quit command to exit the program"""
         return True
 
@@ -27,14 +34,15 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """Creates a new instance of a class
         Usage: create <name of class>"""
-
         if not line:
             print("** class name missing **")
             return
-        if line not in self.__class_list:
+        args = shlex.split(line)
+        if args[0] not in self.__class_list:
             print("** class doesn't exist **")
         else:
-            new_model = BaseModel()
+            cls_call = globals()[args[0]]
+            new_model = cls_call()
             new_model.save()
             print(new_model.id)
 
@@ -94,5 +102,36 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** no instance found **")
 
+    def do_update(self, line):
+        """Updates an instance based on the class name and id
+        by adding or updating attribute
+        Usage : $ update <class> <id> <attr> <value>"""
+
+        args = shlex.split(line)
+        largs = len(args)
+        if largs < 1:
+            print("** class name missing **")
+        if largs == 1:
+            if args[0] not in self.__class_list:
+                print("** class doesn't exist **")
+            else:
+                print("** instance id missing **")
+        if largs < 3:
+            print("** attribute name missing **")
+        if largs < 4:
+            print("** value missing **")
+        if largs >= 4:
+            models = storage.all()
+            bm_key = "{}.{}".format(args[0], args[1])
+            try:
+                key = args[2]
+                value = args[3]
+                dict2 = {key: value}
+                models[bm_key].__dict__.update(dict2)
+                print(models[bm_key])
+            except:
+                print("** no instance found **")
+
 if __name__ == '__main__':
+    print(globals.keys())
     HBNBCommand().cmdloop()
