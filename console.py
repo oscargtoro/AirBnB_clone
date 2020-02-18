@@ -120,14 +120,12 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         if largs < 4:
             print("** value missing **")
-        if largs >= 4:
+        if largs == 4:
             models = storage.all()
             bm_key = "{}.{}".format(args[0], args[1])
             try:
-                key = args[2]
-                value = args[3]
-                dict2 = {key: value}
-                models[bm_key].__dict__.update(dict2)
+                setattr(models[bm_key], args[2], args[3])
+                models[bm_key].save()
                 print(models[bm_key])
             except:
                 print("** no instance found **")
