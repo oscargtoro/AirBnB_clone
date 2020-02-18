@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ module point 5 file_storage """
 import json
-#import models
+import models
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
