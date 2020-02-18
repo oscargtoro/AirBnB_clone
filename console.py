@@ -74,12 +74,18 @@ class HBNBCommand(cmd.Cmd):
         Usage: $ all <class> or $ all"""
         models = storage.all()
         m_list = []
-        if not line or line in self.__class_list:
+        if not line:
             for key, value in models.items():
                 m_list.append(str(value))
             print(m_list)
-        else:
-            print("** class doesn't exist **")
+            return
+        if line in self.__class_list:
+            for key, value in models.items():
+                if models[key].to_dict()["__class__"] == line:
+                    m_list.append(str(value))
+            print(m_list)
+            return
+        print("** class doesn't exist **")
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id
