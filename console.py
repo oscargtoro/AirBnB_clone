@@ -133,13 +133,14 @@ class HBNBCommand(cmd.Cmd):
         if largs < 4:
             print("** value missing **")
             return
-        models = storage.all()
-        bm_key = "{}.{}".format(args[0], args[1])
-        try:
-            setattr(models[bm_key], args[2], args[3])
-            models[bm_key].save()
-        except:
-            print("** no instance found **")
+        if largs == 4:
+            models = storage.all()
+            bm_key = "{}.{}".format(args[0], args[1])
+            try:
+                setattr(models[bm_key], args[2], args[3])
+                models[bm_key].save()
+            except:
+                print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
