@@ -34,12 +34,12 @@ class FileStorage:
 
     def reload(self):
         """deserializes JSON file to __objects"""
-        #try:
-        with open(self.__file_path, "r", encoding='utf-8') as f:
-            o_dict = json.load(f)
-            for key, value in o_dict.items():
-                objclass = value.pop("__class__")
-                bmObj = globals()[objclass](**value)
-                self.new(bmObj)
-        #except:
-        #    pass
+        try:
+            with open(self.__file_path, "r", encoding='utf-8') as f:
+                o_dict = json.load(f)
+                for key, value in o_dict.items():
+                    objclass = value.pop("__class__")
+                    bmObj = globals()[objclass](**value)
+                    self.new(bmObj)
+        except:
+            pass
