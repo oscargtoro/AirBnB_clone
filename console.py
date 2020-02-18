@@ -126,7 +126,6 @@ class HBNBCommand(cmd.Cmd):
             try:
                 setattr(models[bm_key], args[2], args[3])
                 models[bm_key].save()
-                print(models[bm_key])
             except:
                 print("** no instance found **")
 
