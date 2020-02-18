@@ -37,11 +37,10 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
             return
-        args = shlex.split(line)
-        if args[0] not in self.__class_list:
+        if line not in self.__class_list:
             print("** class doesn't exist **")
         else:
-            cls_call = globals()[args[0]]
+            cls_call = globals()[line]
             new_model = cls_call()
             new_model.save()
             print(new_model.id)
@@ -57,15 +56,16 @@ class HBNBCommand(cmd.Cmd):
         if largs == 1:
             if args[0] not in self.__class_list:
                 print("** class doesn't exist **")
+                return
             else:
                 print("** instance id missing **")
+                return
         elif largs == 2:
             models = storage.all()
             bm_key = "{}.{}".format(args[0], args[1])
-            for key, value in models.items():
-                if key == bm_key:
-                    print(value)
-                    return
+        try:
+            print(models[bm_key])
+        except:
             print("** no instance found **")
 
     def do_all(self, line):
@@ -94,6 +94,7 @@ class HBNBCommand(cmd.Cmd):
         largs = len(args)
         if largs < 1:
             print("** class name missing **")
+            return
         if largs == 1:
             if args[0] not in self.__class_list:
                 print("** class doesn't exist **")
@@ -117,23 +118,27 @@ class HBNBCommand(cmd.Cmd):
         largs = len(args)
         if largs < 1:
             print("** class name missing **")
+            return
         if largs == 1:
             if args[0] not in self.__class_list:
                 print("** class doesn't exist **")
+                return
             else:
                 print("** instance id missing **")
+                return
         if largs < 3:
             print("** attribute name missing **")
+            return
         if largs < 4:
             print("** value missing **")
-        if largs == 4:
-            models = storage.all()
-            bm_key = "{}.{}".format(args[0], args[1])
-            try:
-                setattr(models[bm_key], args[2], args[3])
-                models[bm_key].save()
-            except:
-                print("** no instance found **")
+            return
+        models = storage.all()
+        bm_key = "{}.{}".format(args[0], args[1])
+        try:
+            setattr(models[bm_key], args[2], args[3])
+            models[bm_key].save()
+        except:
+            print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
