@@ -7,7 +7,7 @@ class TestBaseModel(unittest.TestCase):
     """Class with test cases for the Base class"""
 
     def test_attrib(self):
-        """testing id counter and assignment"""
+        """Test attribute assignment"""
         b1 = BaseModel()
         b1.name = "Holberton"
         b1.my_number = 89
