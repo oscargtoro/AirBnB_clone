@@ -133,5 +133,4 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
 if __name__ == '__main__':
-    print(globals.keys())
     HBNBCommand().cmdloop()
