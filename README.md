@@ -4,7 +4,7 @@
 The AirBnB Clone is a project to build a console where we can manipulate objects based on a master class. The data manipulated will be stored in a file using json format.
 
 ## Description
-The command interpreter or console is a way to connect the user with the program through command lines for different purposes. With this interpreter you can create objects depending the class the user chooses.
+The command interpreter or console is a way to connect the user with the program through command lines for different purposes. With this interpreter you can manipulate objects of different classes.
 
 ## How to start it
 To start the command interpreter, you have to download this repository in your computer and open your terminal. Then, you have to type "./console.py".
