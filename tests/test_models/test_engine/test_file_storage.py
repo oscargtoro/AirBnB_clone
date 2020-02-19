@@ -18,9 +18,11 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(len(storage.__init__.__doc__) > 0)
         self.assertTrue(len(storage.reload.__doc__) > 0)
 
-    def test_filestorageexists(self):
-        """[storage] Testing file file_storage.py exists"""
+    def test_filestorageperm(self):
+        """[storage] Testing file file_storage.py permissions"""
         self.assertTrue(os.access('models/engine/file_storage.py', os.R_OK))
+        self.assertTrue(os.access('models/engine/file_storage.py', os.W_OK))
+        self.assertTrue(os.access('models/engine/file_storage.py', os.X_OK))
 
     def test_all(self):
         """[storage] Testing all method output"""

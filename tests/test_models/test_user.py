@@ -8,9 +8,11 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """Class with test cases for the User class"""
 
-    def test_userpyexists(self):
-        """[User] test file user.py exists"""
+    def test_userperm(self):
+        """[User] test file user.py permissions"""
         self.assertTrue(os.access('models/user.py', os.R_OK))
+        self.assertTrue(os.access('models/user.py', os.W_OK))
+        self.assertTrue(os.access('models/user.py', os.X_OK))
 
     def test_save(self):
         """Test validation updated_at"""
