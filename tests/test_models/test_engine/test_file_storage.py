@@ -18,6 +18,20 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(len(storage.__init__.__doc__) > 0)
         self.assertTrue(len(storage.reload.__doc__) > 0)
 
+    def test_save(self):
+        """[storage] Testing save method"""
+        try:
+            os.remove(pt)
+        except BaseException:
+            pass
+        base = BaseModel()
+        storage.save()
+        self.assertTrue(os.access('file.json', os.R_OK))
+        try:
+            os.remove(pt)
+        except BaseException:
+            pass
+
     def test_all(self):
         """[storage] Testing all method output"""
         storageDict = storage.all()
@@ -29,6 +43,10 @@ class TestFileStorage(unittest.TestCase):
         allbm = storage.all()
         objName = "{}.{}".format(type(bm).__name__, bm.id)
         self.assertIsNotNone(allbm[objName])
+        try:
+            os.remove(pt)
+        except BaseException:
+            pass
 
     def test_reload(self):
         """[storage] Testing reload method"""
@@ -38,12 +56,7 @@ class TestFileStorage(unittest.TestCase):
         storage.reload()
         obj2 = storage.all()
         self.assertEqual(obj1, obj2)
-
-    def test_save(self):
-        """[storage] Testing save method"""
-        base = BaseModel()
-        obj1 = storage.all()
-        storage.save()
-        storage.reload()
-        obj2 = storage.all()
-        self.assertEqual(obj1, obj2)
+        try:
+            os.remove(pt)
+        except BaseException:
+            pass
