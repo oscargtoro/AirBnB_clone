@@ -63,9 +63,9 @@ It is necessary to call the procedure you want to execute, next is a list of the
 	```
 	(hbnb) show BaseModel 06b5171e-1b27-49c7-8b09-1e8880977148
 	[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'updated_at': datetime.datetime(2020, 2, 19, 14, 4, 27, 608391), 'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 4, 27, 608370)}
-	(hbnb) update BaseModel 06b5171e-1b27-49c7-8b09-1e8880977148 email "aibnb@holbertonschool.com"
+	(hbnb) update BaseModel 06b5171e-1b27-49c7-8b09-1e8880977148 email "airbnb@holbertonschool.com"
 	(hbnb) show BaseModel 06b5171e-1b27-49c7-8b09-1e8880977148
-	[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 8, 41, 746116), 'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'email': 'aibnb@holbertonschool.com'}
+	[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 8, 41, 746116), 'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'email': 'airbnb@holbertonschool.com'}
 	```
 
 - **List of allowed classes**
