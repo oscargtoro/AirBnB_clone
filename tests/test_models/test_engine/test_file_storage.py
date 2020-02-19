@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittests for this project"""
 import unittest
+import os
 from models import storage
 from models.base_model import BaseModel
 
@@ -28,3 +29,12 @@ class TestFileStorage(unittest.TestCase):
         allbm = storage.all()
         objName = "{}.{}".format(type(bm).__name__, bm.id)
         self.assertIsNotNone(allbm[objName])
+
+    def test_reload(self):
+        """[storage] Testing reload method"""
+        base = BaseModel()
+        obj1 = storage.all()
+        storage.save()
+        storage.reload()
+        obj2 = storage.all()
+        self.assertEqual(obj1, obj2)
