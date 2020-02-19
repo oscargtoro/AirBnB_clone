@@ -26,3 +26,19 @@ class TestUser(unittest.TestCase):
         """Test access file"""
         access = os.access("models/user.py", os.R_OK)
         self.assertTrue(access, "Read permissions")
+
+    def test_to_dict(self):
+        """[BaseModel] Testing to_dict method"""
+        user = User()
+        userDict = user.to_dict()
+        self.assertEqual(user.__class__.__name__, 'User')
+        self.assertIsInstance(userDict['created_at'], str)
+        self.assertIsInstance(userDict['updated_at'], str)
+        self.assertIsInstance(userDict['id'], str)
+
+    def test__str__(self):
+        """[User] Testing __str__ method"""
+        user = User()
+        userStr = str(user)
+        strTest = "[User] ({}) {}".format(user.id, user.__dict__)
+        self.assertEqual(userStr, strTest)
