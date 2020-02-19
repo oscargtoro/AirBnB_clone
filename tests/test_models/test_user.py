@@ -8,6 +8,10 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """Class with test cases for the User class"""
 
+    def test_userpyexists(self):
+        """[User] test file user.py exists"""
+        self.assertTrue(os.access('models/user.py', os.R_OK))
+
     def test_save(self):
         """Test validation updated_at"""
         b1 = User()
