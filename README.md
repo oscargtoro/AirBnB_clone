@@ -47,7 +47,8 @@ Deletes an instance based on the class name and `id` (save the change into the J
 	```
 
 - **all**
-Prints all string representation of all instances based or not on the class name. Ex: 
+Prints all string representation of all instances based or not on the class name. Ex:
+
        ```
        (hbnb) all BaseModel
        ["[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648765)}"]
