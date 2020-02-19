@@ -2,6 +2,7 @@
 """unittests for this project"""
 import unittest
 from models import storage
+from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
@@ -20,3 +21,10 @@ class TestFileStorage(unittest.TestCase):
         """[storage] Testing all method output"""
         storageDict = storage.all()
         self.assertEqual(type(storageDict), dict)
+
+    def test_new(self):
+        """[storage] Testing new method"""
+        bm = BaseModel()
+        allbm = storage.all()
+        objName = "{}.{}".format(type(bm).__name__, bm.id)
+        self.assertIsNotNone(allbm[objName])
