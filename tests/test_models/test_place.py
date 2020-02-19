@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittests for this project"""
 import unittest
+import os
 from models.place import Place
 
 
@@ -19,6 +20,12 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(len(Place.to_dict.__doc__) > 0)
         self.assertTrue(len(Place.save.__doc__) > 0)
         self.assertTrue(len(Place.__init__.__doc__) > 0)
+
+    def test_userperm(self):
+        """[Place] test file palce.py permissions"""
+        self.assertTrue(os.access('models/place.py', os.R_OK))
+        self.assertTrue(os.access('models/place.py', os.W_OK))
+        self.assertTrue(os.access('models/place.py', os.X_OK))
 
     def test_save(self):
         """[Place] Testing save method"""
