@@ -8,7 +8,7 @@ class TestBaseModel(unittest.TestCase):
     """Class with test cases for the Base class"""
 
     def test_doc(self):
-        """Testing if doc exist """
+        """[BaseModel] Testing if doc exist"""
         self.assertTrue(len(BaseModel.__doc__) > 0)
         self.assertTrue(len(BaseModel.__str__.__doc__) > 0)
         self.assertTrue(len(BaseModel.to_dict.__doc__) > 0)
@@ -16,7 +16,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(len(BaseModel.__init__.__doc__) > 0)
 
     def test_attrib(self):
-        """Testing attribute assignment"""
+        """[BaseModel] Testing attribute assignment"""
         b1 = BaseModel()
         b1.name = "Holberton"
         b1.my_number = 89
@@ -24,7 +24,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertAlmostEqual(b1.my_number, 89)
 
     def test_to_dict(self):
-        """ Testing to_dict method"""
+        """[BaseModel] Testing to_dict method"""
         bm = BaseModel()
         baseDict = bm.to_dict()
         self.assertEqual(bm.__class__.__name__, 'BaseModel')
@@ -33,7 +33,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(baseDict['id'], str)
 
     def test__str__(self):
-        """Testing __str__ method"""
+        """[BaseModel] Testing __str__ method"""
+        bm = BaseModel()
+        bmStr = str(bm)
+        strTest = "[BaseModel] ({}) {}".format(bm.id, bm.__dict__)
+        self.assertEqual(bmStr, strTest)
+
+    def test_save(self):
+        """[BaseModel] Testing save method"""
         base = BaseModel()
         bm1 = base.to_dict()
         base.save()
