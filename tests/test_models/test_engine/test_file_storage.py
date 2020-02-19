@@ -38,3 +38,12 @@ class TestFileStorage(unittest.TestCase):
         storage.reload()
         obj2 = storage.all()
         self.assertEqual(obj1, obj2)
+
+    def test_save(self):
+        """[storage] Testing save method"""
+        base = BaseModel()
+        obj1 = storage.all()
+        storage.save()
+        storage.reload()
+        obj2 = storage.all()
+        self.assertEqual(obj1, obj2)
