@@ -22,3 +22,14 @@ class TestBaseModel(unittest.TestCase):
         b1.my_number = 89
         self.assertAlmostEqual(b1.name, "Holberton")
         self.assertAlmostEqual(b1.my_number, 89)
+
+    def test_to_dict(self):
+        """ Function: test_to_dictMethod
+                      to test to_dict instance method
+        """
+        bm = BaseModel()
+        BaseDict = bm.to_dict()
+        self.assertEqual(bm.__class__.__name__, 'BaseModel')
+        self.assertIsInstance(BaseDict['created_at'], str)
+        self.assertIsInstance(BaseDict['updated_at'], str)
+        self.assertIsInstance(BaseDict['id'], str)
