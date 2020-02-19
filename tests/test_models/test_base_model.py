@@ -16,7 +16,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(len(BaseModel.__init__.__doc__) > 0)
 
     def test_attrib(self):
-        """Test attribute assignment"""
+        """Testing attribute assignment"""
         b1 = BaseModel()
         b1.name = "Holberton"
         b1.my_number = 89
@@ -24,12 +24,18 @@ class TestBaseModel(unittest.TestCase):
         self.assertAlmostEqual(b1.my_number, 89)
 
     def test_to_dict(self):
-        """ Function: test_to_dictMethod
-                      to test to_dict instance method
-        """
+        """ Testing to_dict method"""
         bm = BaseModel()
-        BaseDict = bm.to_dict()
+        baseDict = bm.to_dict()
         self.assertEqual(bm.__class__.__name__, 'BaseModel')
-        self.assertIsInstance(BaseDict['created_at'], str)
-        self.assertIsInstance(BaseDict['updated_at'], str)
-        self.assertIsInstance(BaseDict['id'], str)
+        self.assertIsInstance(baseDict['created_at'], str)
+        self.assertIsInstance(baseDict['updated_at'], str)
+        self.assertIsInstance(baseDict['id'], str)
+
+    def test__str__(self):
+        """Testing __str__ method"""
+        base = BaseModel()
+        bm1 = base.to_dict()
+        base.save()
+        bm2 = base.to_dict()
+        self.assertNotEqual(bm1["updated_at"], bm2["updated_at"])
