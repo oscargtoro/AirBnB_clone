@@ -12,3 +12,11 @@ class TestUser(unittest.TestCase):
         b1 = User()
         b1.password = "123456789"        
         self.assertAlmostEqual(b1.password, "123456789")
+
+    def test_save(self):
+        b1 = User()
+        up1 = b1.updated_at
+        b1.save()
+        up2 = b1.updated_at
+        b1.save()
+        self.assertNotEqual(up1, up2)
