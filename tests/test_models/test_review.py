@@ -16,7 +16,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(len(Review.save.__doc__) > 0)
         self.assertTrue(len(Review.__init__.__doc__) > 0)
 
-    def test_stateperm(self):
+    def test_reviewperm(self):
         """[Review] test file review.py permissions"""
         self.assertTrue(os.access('models/review.py', os.R_OK))
         self.assertTrue(os.access('models/review.py', os.W_OK))
