@@ -51,9 +51,9 @@ Prints all string representation of all instances based or not on the class name
 
        ```
        (hbnb) all BaseModel
-       ["[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648765)}"]
+       [\"[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648765)}\"]
        (hbnb) all
-       ["[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648765)}", "[User] (5de3679e-4b93-4a82-8ffd-c35e353b8a66) {'id': '5de3679e-4b93-4a82-8ffd-c35e353b8a66', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 5, 748583), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 5, 748608)}"]
+       [\"[BaseModel] (06b5171e-1b27-49c7-8b09-1e8880977148) {'id': '06b5171e-1b27-49c7-8b09-1e8880977148', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648745), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 1, 648765)}", "[User] (5de3679e-4b93-4a82-8ffd-c35e353b8a66) {'id': '5de3679e-4b93-4a82-8ffd-c35e353b8a66', 'created_at': datetime.datetime(2020, 2, 19, 14, 6, 5, 748583), 'updated_at': datetime.datetime(2020, 2, 19, 14, 6, 5, 748608)}\"]
        ```
 
 - **update**
