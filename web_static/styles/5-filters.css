@@ -22,25 +22,32 @@
     opacity: 90%;
 }
 
-.filters div {
+.locations {
     height: 100%;
-    width: 25%;
-    margin-left: 5%;
+    width: 25%; 
+    border-right: 1px solid #DDDDDD;
     float: left;
 }
 
-.filters .locations {
-    border-right: 1px solid #DDDDDD;
+.amenities {
+    height: 100%;
+    width: 25%;
+    float: left;
+
 }
 
-.filters h3 {
-    margin-bottom: 0;
+.locations h3,
+.amenities h3 {
+    margin-top: 20px;
+    margin-left: 20%;
     line-height: 100%;
     font-weight: 600;
 }
 
-.filters h4 {
-    margin-top: 0;
+.locations h4,
+.amenities h4 {
+    margin-top: 5px;
+    margin-left: 20%;
     line-height: 100%;
     font-weight: 400;
     font-size: 14px;
